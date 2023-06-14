@@ -10,6 +10,6 @@ int main(void)
 	 * for example, 'Hola ' => [[H][o][l][a][ ][\0]]
 	 */
 	char str[] = "with proper grammar, but the outcome is a piece of art,"; 
-	printf("%s\n",str);
+	printf("%s\n", str);
 	return (0);
 }
