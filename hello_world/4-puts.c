@@ -1,5 +1,7 @@
 #include<stdio.h>
-
+/**
+ * main - main function to execute the file
+ */
 int main(void)
 {
 	/**
