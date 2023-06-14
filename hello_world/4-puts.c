@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void main() {
+int main() {
   /* Strings are a sequence of characters terminated with a null character \0 
    *
    * for example, 'Hola ' => [[H][o][l][a][ ][\0]] 
