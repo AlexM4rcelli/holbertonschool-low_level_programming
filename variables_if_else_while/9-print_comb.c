@@ -17,10 +17,13 @@ int main(void)
 	{
 		putchar(num);
 		if (num < 57)
+		{
 			putchar(',');
 			putchar(' ');
-	}
 
+		}
+	}
+}}
 	putchar(10);
 
 	return (0);
