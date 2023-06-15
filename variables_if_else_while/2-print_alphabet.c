@@ -14,10 +14,9 @@ int main(void)
 	int letter = 97;
 
 	for (letter ; letter <= 122; letter++)
-	{
 		putchar(letter);
-	}
 
 	putchar(10);
 
+	return (0);
 }
