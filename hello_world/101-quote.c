@@ -16,7 +16,7 @@ int main(void)
 	 * (es decir, la terminal), la dirección es la de la variable str, y la
 	 * cantidada enviada la longitud de str.
 	 */
-	char str[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
+	char str[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
 	write(1, &str, strlen(str));
 
