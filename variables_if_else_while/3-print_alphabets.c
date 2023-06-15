@@ -17,7 +17,7 @@ int main(void)
 		putchar(letter);
 
 	for (letter = 65; letter <= 90; letter++)
-		ptchar(letter);
+		putchar(letter);
 
 	putchar(10);
 
