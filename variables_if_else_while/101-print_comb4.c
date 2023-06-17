@@ -15,17 +15,22 @@ int main(void)
 
 	for (num = 48; num < 57; num++)
 	{
-		int i = num + 1;
-
-		while (i <= 57)
+		int i;
+		for (i = num + 1; i < 57; i++)
 		{
-			putchar(num);
-			putchar(i);
-			i++;
-			if (num < 56)
+			int j = i + 1;
+			while ( j <= 57)
 			{
-				putchar(',');
-				putchar(' ');
+				putchar(num);
+				putchar(i);
+				putchar(j);
+				j++;
+				
+				if (num < 55)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
