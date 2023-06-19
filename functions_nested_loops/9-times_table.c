@@ -23,14 +23,21 @@ times_table(void)
 				_putchar((r % 10) + '0');
 			} else
 			{
-				_putchar(r + '0');
+				_putchar('0'+ r);
 			}
-			
-			if (b < 9)
+
+			if (b < 9 && r < 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+			} else if (b < 9 && r >= 10)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
+
+
 			b++;
 		}
 
