@@ -1,13 +1,15 @@
-#include<stdio.h>
+#include "main.h"
 
-int main()
+int 
+main(void)
 {
+	char c[] = "_putchar";
+	int i;
 
-    /*
-     * it will print the string
-     * from base address to null'\0'.
-     */
-    printf("%s","_putchar");
+	for (i = 0; i <= 7; i++)
+	{
+		_putchar(c[i]);
+	}
 
-    return 0;
+	return (0);
 }
