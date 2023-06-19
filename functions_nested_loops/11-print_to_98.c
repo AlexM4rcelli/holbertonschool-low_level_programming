@@ -1,6 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 
+/**
+ * print_to_98 - Print the numbers from the input to 98..
+ * @n: Holds the integer for the function.
+ *
+ * Return: Always 0.
+ */
+
 void print_to_98(int n)
 {
 	int i;
