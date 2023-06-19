@@ -5,7 +5,8 @@
   * main - Execute the program
   * Return - something
   */
-int main(void)
+int 
+main(void)
 {
 	char c[] = "_putchar\n";
 	int i;
