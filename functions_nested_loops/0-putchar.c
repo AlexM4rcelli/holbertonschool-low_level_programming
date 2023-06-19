@@ -1,15 +1,17 @@
-#include "main.h"
+ #include "main.h"
+ #include <stdio.h>
 
-int 
-main(void)
+ /*
+  * main - Execute the program
+  * Return - something
+  */
+int main(void)
 {
 	char c[] = "_putchar\n";
 	int i;
-
-	for (i = 0; i <= 9; i++)
-	{
-		_putchar(c[i]);
-	}
-
-	return (0);
+         for (i = 0; i <= 8; i++)
+         {
+	 	_putchar(c[i]);
+         }
+	 return (0);
 }
