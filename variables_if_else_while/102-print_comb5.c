@@ -15,7 +15,7 @@ int main(void)
 	int b;
 
 	for (j = 0; j <= 98; j++)
-	{ 
+	{
 		b = j + 1;
 	while (b != 100)
 	{
@@ -25,14 +25,14 @@ int main(void)
 		putchar((b / 10) + '0');
 		putchar((b % 10) + '0');
 		b++;
-	
-		if(j != 98)
+
+		if (j != 98)
 		{
 			putchar(',');
 			putchar(' ');
 		}
 	}
-	
+
 	}
 	putchar(10);
 
