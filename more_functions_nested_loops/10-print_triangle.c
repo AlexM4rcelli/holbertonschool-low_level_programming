@@ -5,11 +5,11 @@ print_triangle(int n)
 {
 	int i, j, k;
 
-	for (j = 0; j < n; j++)
+	for (j = 0; j <= n; j++)
 	{
 		if (j != 0)
 		{
-			for (k = n - 1; k > j; k--)
+			for (k = n; k > j; k--)
 			{
 				_putchar(' ');
 			}
