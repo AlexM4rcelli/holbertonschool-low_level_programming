@@ -15,9 +15,11 @@ more_numbers(void)
 			if (j >= 10)
 			{
 				int digits;
+
 				for (digits = 0; digits < 2; digits++)
 				{
 					int dd;
+
 					if (digits == 0)
 						dd = j / 10;
 					else
