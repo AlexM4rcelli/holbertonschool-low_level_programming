@@ -4,7 +4,7 @@ void
 print_triangle(int n)
 {
 	int i, j, k;
-	
+
 	if (n <= 0)
 		_putchar('\n');
 	else
