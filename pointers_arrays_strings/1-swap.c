@@ -1,5 +1,5 @@
 /**
- * swap_int - swap the values of two ints 
+ * swap_int - swap the values of two ints
  * @a: pointer to the value of the first int
  * @b: pointer to the value of the second int
  */
