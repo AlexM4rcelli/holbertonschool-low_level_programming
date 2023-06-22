@@ -13,7 +13,8 @@ print_rev(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		;
 
-	for (j = i; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 		_putchar(str[j]);
-
+	
+	_putchar('\n');
 }
