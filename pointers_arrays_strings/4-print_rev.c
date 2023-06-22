@@ -16,5 +16,4 @@ print_rev(char *str)
 	for (j = i; j >= 0; j--)
 		_putchar(str[j]);
 
-	_putchar('\n');
 }
