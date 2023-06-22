@@ -13,10 +13,14 @@ rev_string(char *s)
 	for (i = 0; s[i] != '\0'; i++)
 		;
 
-	j = i - 1;
+	if (i == 0)
+		j = 0;
+	else
+		j = i - 1;
+
 	i = 0;
 
-	while (j != i)
+	while (j > i)
 	{
 		char c = s[i];
 
