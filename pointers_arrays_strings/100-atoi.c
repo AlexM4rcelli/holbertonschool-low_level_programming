@@ -31,7 +31,7 @@ _atoi(char *s)
 			negatives++;
 	}
 
-	if (negatives % 2 == 0)
+	if (negatives % 2 == 0 && negatives != 0) 
 		number = -number;
 
 	return (number);
