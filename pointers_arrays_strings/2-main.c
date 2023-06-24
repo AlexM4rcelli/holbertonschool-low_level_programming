@@ -16,7 +16,7 @@ int main(void)
 		s1[i] = '-';
 	s1[i] = '\0';
 	printf("%s\n", s1);
-	p = _strncpy(s1, "Talk is cheap. Show me the code.\n", 14);
+	p = _strncpy(s1, "", 4);
 	printf("%s\n", s1);
 	printf("%s\n", p);
 	for (i = 0; i < 98; i++)

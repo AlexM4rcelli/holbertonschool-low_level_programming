@@ -13,5 +13,7 @@ char
 		}
 	}
 
+	dest[len2] = '\0';
+
 	return (dest);
 }
