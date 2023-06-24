@@ -11,7 +11,7 @@ char
 	}
 
 	if (n > len2)
-		dest[len2] = '\0';
+		dest[n] = '\0';
 
 	return (dest);
 }
