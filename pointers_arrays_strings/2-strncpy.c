@@ -10,7 +10,8 @@ char
 		dest[len2] = src[len2];
 	}
 
-	dest[len2] = '\0';
+	for (; len2 < n; len2++)
+		dest[len2] = '\0';
 
 	return (dest);
 }
