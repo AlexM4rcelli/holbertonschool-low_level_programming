@@ -12,7 +12,7 @@ char
 
 	for (len1 = 0; c[len1] != '\0'; len1++)
 	{
-		for (len2 = 0; len2 < 4; len2++)
+		for (len2 = 0; len2 <= 4; len2++)
 		{
 			if (c[len1] == lett[len2] || c[len1] == (lett[len2] - 32))
 			{
