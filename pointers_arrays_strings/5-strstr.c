@@ -10,12 +10,15 @@ char
 	{
 		for (len = 0; accept[len] != '\0'; len++)
 		{
+			count = 0;
+
 			if (*s == accept[len])
 			{	
+				s++;
 				count++;
 				if (count == lenN)
 					return (s);
-			}	
+			}
 		}
 		s++;
 	}
