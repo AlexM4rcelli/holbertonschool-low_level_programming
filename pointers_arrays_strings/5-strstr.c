@@ -3,9 +3,9 @@ char
 {
 	int len, lenN, count;
 
-	for (lenN = 0; needle[lenN] != '\0'; lenN++)
+	for (lenN = 0; accept[lenN] != '\0'; lenN++)
 		;
-	
+
 	while (*s != '\0')
 	{
 		for (len = 0; accept[len] != '\0'; len++)
