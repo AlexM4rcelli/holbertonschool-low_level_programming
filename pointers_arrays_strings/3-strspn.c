@@ -14,6 +14,11 @@ _strspn(char *s, char *accept)
 				len++;
 			}
 		}
+
+		if (s[lens] != accept[lens])
+		{
+			return (len);
+		}
 	}
 
 	return (len);
