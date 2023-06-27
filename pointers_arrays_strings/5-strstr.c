@@ -11,9 +11,11 @@ char
 		for (len = 0; accept[len] != '\0'; len++)
 		{
 			if (*s == accept[len])
+			{	
 				count++;
 				if (count == lenN)
 					return (s);
+			}	
 		}
 		s++;
 	}
