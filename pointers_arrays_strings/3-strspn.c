@@ -12,6 +12,7 @@ _strspn(char *s, char *accept)
 			if (s[lens] == accept[lena])
 			{
 				len++;
+				break;
 			}
 		}
 		if (s[lens] != accept[lena])
