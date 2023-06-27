@@ -1,5 +1,5 @@
 char
-*_strstr(char *haystack, char *needle)
+*_strstr(char *s, char *accept)
 {
 	int len, lenN, count;
 
