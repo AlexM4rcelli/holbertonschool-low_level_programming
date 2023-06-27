@@ -14,12 +14,10 @@ _strspn(char *s, char *accept)
 				len++;
 			}
 		}
-
-		if (s[lens] != accept[lens])
+		if (s[lens] != accept[lena])
 		{
 			return (len);
 		}
 	}
-
 	return (len);
 }
