@@ -8,13 +8,14 @@ char
 
 	while (*s != '\0')
 	{
-		for (len = 0; accept[len] != '\0'; len++)
+		if (*s == accept[0])
 		{
 			count = 0;
-
-			if (*s == accept[len])
-			{	
+			len = 1;
+			while (*s == accept[len])
+			{
 				s++;
+				len++;
 				count++;
 				if (count == lenN)
 					return (s);
