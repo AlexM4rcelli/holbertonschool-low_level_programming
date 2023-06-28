@@ -9,12 +9,10 @@
 
 int _sqrt_recursion(int x)
 {
-	if (y < 0)
+	if (x < 0)
 		return (-1);
-	else if (y == 0)
+	else if (x == 0)
 		return (1);
-	else if (y <= 1)
-		return (x);
 
 	return (x / (2 * _sqrt_recursion(x - 1)));
 }
