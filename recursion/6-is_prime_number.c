@@ -7,7 +7,7 @@ int calculate(int n, int count);
  */
 int is_prime_number(int n)
 {
-	return (calculate(n, 1));
+	return (calculate(n, n / 2));
 }
 
 int
@@ -15,12 +15,12 @@ calculate(int n, int count)
 {
 	if (n > 0)
 	{
-		if (n % count == 0 && (count != 1 || count != n))
+		if (n % count == 0 && n != 1)
 			return (0);
-		else if (n % count == 0 && count == n)
+		else if (n % count == 0 && count == 1)
 			return (1);
 		else
-			return (calculate(n, count + 1));
+			return (calculate(n, count - 1));
 	} else
 	{
 		if (n % count == 0 && (count != -1 || count != n))
