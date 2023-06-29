@@ -15,7 +15,7 @@ calculate(int n, int count)
 {
 	if ((n % count == 0 && count != 1) || n <= 1)
 		return (0);
-	else if (n == count)
+	if (n == count)
 		return (1);
 
 	return (calculate(n, count + 1));
