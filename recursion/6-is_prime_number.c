@@ -13,21 +13,11 @@ int is_prime_number(int n)
 int
 calculate(int n, int count)
 {
-	if (n > 0)
-	{
-		if (n % count == 0 && n != 1)
-			return (0);
-		else if (n % count == 0 && count == 1)
-			return (1);
-		else
-			return (calculate(n, count - 1));
-	} else
-	{
-		if (n % count == 0 && (count != -1 || count != n))
-			return (0);
-		else if (n % count == 0 && count == n)
-			return (1);
-		else
-			return (calculate(n, count - 1));
-	}
+	if (n == count)
+		return (1);
+
+	if (n % count == 0 || n <= 1)
+		return (0);
+
+	return (calculate(n, count + 1));
 }
