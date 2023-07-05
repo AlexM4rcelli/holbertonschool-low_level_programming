@@ -1,7 +1,5 @@
 # include "main.h"
-# include <stdio.h>
 # include <stdlib.h>
-#include <string.h>
 /**
  * _strdup - Creates space in memory for an duplicated array
  * @str: the array to duplicate
@@ -10,15 +8,20 @@
 
 char *_strdup(char *str)
 {
-	char *array = malloc((sizeof(str) + 1) * sizeof(char));
+	int i, lenStr;
 
-	if (sizeof(str) == 0)
+	for (lenStr = 0; str[lenStr] != '\0'; lenStr++)
+		;
+
+	char *array = malloc(lenStr);
+
+	if (sizeof(str) == 0 || !array)
 		return (NULL);
 
-	if (!array)
-		return (NULL);
+	for (i = 0; i < lenStr; i++)
+		array[i] = str[i];
 
-	strcpy(array, str);
+	array[lenStr] = '\0';
 
 	return (array);
 }
