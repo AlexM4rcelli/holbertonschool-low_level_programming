@@ -35,7 +35,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	i = 0;
 	j = 0;
 
-	while (i < totalLen && j < n)
+	while (i < totalLen && j <= n)
 	{
 		if (i <= len1)
 		{
