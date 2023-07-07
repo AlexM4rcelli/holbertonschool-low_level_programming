@@ -35,13 +35,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	i = 0;
 	j = 0;
 
-	while (i < totalLen - 1 && j < n)
+	while (i < totalLen && j < n)
 	{
-		if (i < len1)
+		if (i <= len1)
 		{
 			array[i] = s1[i];
 		}
-		else
+		if (i >= len1)
 		{
 			array[i] = s2[j];
 			j++;
@@ -49,7 +49,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 	}
 
-	array[totalLen + 1] = '\0';
+	array[totalLen] = '\0';
 
 	return (array);
 }
@@ -57,10 +57,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 int
 getLen(char *s)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
-		;
+	while (s[i])
+		i++;
 
 	return (i);
 }
