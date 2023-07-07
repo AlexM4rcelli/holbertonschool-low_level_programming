@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len2 = getLen(s2);
 
 	if (n >= len2)
-		n = len2;
+		n = len2 - 1;
 
 	totalLen = len1 + len2;
 	array = malloc(totalLen + 1);
@@ -49,7 +49,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 	}
 
-	array[totalLen] = '\0';
+	array[i] = '\0';
 
 	return (array);
 }
@@ -59,7 +59,7 @@ getLen(char *s)
 {
 	unsigned int i = 0;
 
-	while (s[i])
+	while (s[i] != '\0')
 		i++;
 
 	return (i);
