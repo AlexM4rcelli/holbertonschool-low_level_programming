@@ -27,27 +27,25 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		totalLen = len1 + n;
 
-	array = malloc(totalLen + 2);
+	array = malloc(totalLen + 1);
 
 	if (!array)
 		return (NULL);
 
 	i = 0;
 	j = 0;
-
 	while (i < totalLen)
 	{
 		if (i <= len1)
 		{
 			array[i] = s1[i];
-			i++;
 		}
 		if (i >= len1)
 		{
 			array[i] = s2[j];
 			j++;
-			i++;
 		}
+		i++;
 	}
 
 	array[i] = '\0';
