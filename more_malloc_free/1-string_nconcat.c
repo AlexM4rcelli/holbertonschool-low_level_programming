@@ -22,12 +22,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	len1 = getLen(s1);
 	len2 = getLen(s2);
+	if (n >= len2)
+		totalLen = len1 + len2;
+	else
+		totalLen = len1 + n;
 
-	if (n > len2)
-		n = len2;
-
-	totalLen = len1 + len2;
-	array = malloc(totalLen + 1);
+	array = malloc(totalLen + 2);
 
 	if (!array)
 		return (NULL);
@@ -37,19 +37,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	while (i < totalLen)
 	{
-		if (i < len1)
+		if (i <= len1)
 		{
 			array[i] = s1[i];
 			i++;
 		}
-		else
+		if (i >= len1)
 		{
-			if (j < n)
-			{
-				array[i] = s2[j];
-				j++;
-				i++;
-			}
+			array[i] = s2[j];
+			j++;
+			i++;
 		}
 	}
 
