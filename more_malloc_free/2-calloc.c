@@ -7,7 +7,7 @@ void
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	int i;
+	unsigned int i;
 	char *array;
 
 	array = malloc(nmemb * size);
