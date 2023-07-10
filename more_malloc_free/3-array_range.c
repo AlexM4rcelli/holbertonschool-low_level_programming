@@ -15,7 +15,7 @@ int
 	if (!array)
 		return (NULL);
 
-	while (i < l)
+	while (i <= l)
 	{
 		array[i] = min;
 		min++;
