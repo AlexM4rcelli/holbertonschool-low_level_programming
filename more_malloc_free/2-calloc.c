@@ -7,11 +7,13 @@ void
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	char *array = malloc(nmemb * size);
+	int i;
+	char *array;
+
+	array = malloc(nmemb * size);
 
 	if (!array)
 		return (NULL);
-	unsigned int i;
 
 	for (i = 0; i < nmemb; i++)
 		array[i] = 0;
