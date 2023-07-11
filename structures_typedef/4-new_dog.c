@@ -1,4 +1,7 @@
 #include "dog.h"
+#include <stdlib.h>
+
+char *_strcpy(char *src);
 
 /**
  * new_dog - create a new struct of type dog
@@ -11,13 +14,48 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t new;
-	dog_t *p;
+	dog_t *new;
 
-	new.name = name;
-	new.age = age;
-	new.owner = owner;
-	p = &new;
+	new = malloc(sizeof(dog_t));
 
-	return (p);
+	if (!new)
+		return (NULL);
+
+	if (owner == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+	if (name == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+
+	new->name = _strcpy(name);
+	new->age = age;
+	new->owner = _strcpy(owner);
+
+	return (new);
+}
+
+char
+*_strcpy(char *src)
+{
+	int i = 0, len = 0;
+	char *dest;
+
+	while (src[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+
+	for (i = 0; src[i] != '\0'; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
