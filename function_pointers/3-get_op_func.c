@@ -1,4 +1,4 @@
-# include "calc.h"
+# include "3-calc.h"
 # include <string.h>
 /**
  * get_op_func - selects the funct to perform the operation asked by the user
