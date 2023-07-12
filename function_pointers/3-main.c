@@ -22,12 +22,12 @@ main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	if (argc > 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if ((op ==  ops[3].op || op == ops[4].op) && b == 0)
+	if ((strcmp(ops[3].op, op) == 0 || strcmp(ops[4].op, op) == 0) && b == 0)
 	{
 		printf("Error\n");
 		exit(100);
