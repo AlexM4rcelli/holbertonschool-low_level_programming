@@ -16,6 +16,9 @@ print_strings(const char *separator, const unsigned int n, ...)
 		for (i = 0; i < n; i++)
 		{
 			x = va_arg(args, char *);
+			if (!x)
+				x = "(nil)";
+
 			if (i == 0)
 				printf("%s", x);
 			else
@@ -27,6 +30,8 @@ print_strings(const char *separator, const unsigned int n, ...)
 		for (i = 0; i < n; i++)
 		{
 			x = va_arg(args, char *);
+			if (!x)
+				x = "(nil)";
 			printf("%s", x);
 		}
 	}
