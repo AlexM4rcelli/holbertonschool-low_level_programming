@@ -20,7 +20,7 @@ print_all(const char * const format, ...)
 	};
 
 	va_start(args, format);
-	while (format)
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4)
