@@ -1,4 +1,6 @@
 # include "variadic_functions.h"
+# include <stdarg.h>
+# include <stdio.h>
 
 void print_char(va_list args);
 void print_int(va_list args);
