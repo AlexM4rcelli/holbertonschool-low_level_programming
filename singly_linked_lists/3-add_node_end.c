@@ -1,6 +1,7 @@
 # include "lists.h"
 
-list_t *add_node_end(list_t **head, const char *str)
+list_t
+*add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *curr;
 	unsigned int len = 0, aux;
@@ -23,8 +24,12 @@ list_t *add_node_end(list_t **head, const char *str)
 	new->str = newStr;
 	new->next = NULL;
 
-	if (!*head)
+	if (*head == NULL)
+	{
 		*head = new;
+		return (new);
+	}
+
 	curr = *head;
 	while (curr->next)
 		curr = curr->next;
