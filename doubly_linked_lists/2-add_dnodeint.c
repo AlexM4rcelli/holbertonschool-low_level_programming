@@ -14,6 +14,7 @@ dlistint_t
 	new->next = *head;
 
 	*head = new;
+	new->prev = NULL;
 	(*head)->prev = new;
 
 	return (new);
