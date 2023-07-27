@@ -16,7 +16,10 @@ list_t
 	newStr = malloc(len + 1);
 
 	if (!newStr)
+	{
+		free(new);
 		return (NULL);
+	}
 	for (aux = 0; aux <= len; aux++)
 		newStr[aux] = str[aux];
 
@@ -34,7 +37,7 @@ list_t
 	while (curr->next)
 		curr = curr->next;
 
-	curr->next = new;	
+	curr->next = new;
 
 	return (new);
 }
