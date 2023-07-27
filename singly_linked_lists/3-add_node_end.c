@@ -34,7 +34,7 @@ list_t
 	while (curr->next)
 		curr = curr->next;
 
-	curr->next = new;
+	curr->next = new;	
 
 	return (new);
 }
