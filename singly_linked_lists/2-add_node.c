@@ -1,6 +1,7 @@
 # include "lists.h"
 
-list_t *add_node(list_t **head, const char *str)
+list_t
+*add_node(list_t **head, const char *str)
 {
 	list_t *new;
 	unsigned int len = 0, aux;
@@ -24,5 +25,6 @@ list_t *add_node(list_t **head, const char *str)
 	new->next = *head;
 	*head = new;
 
+	free(new);
 	return (new);
 }
