@@ -9,7 +9,7 @@ dlistint_t
 	if (!new)
 		return (NULL);
 
-	new->prev = (*head - 1);
+	new->prev = (*head) - 1;
 	new->n = n;
 	new->next = *head;
 
