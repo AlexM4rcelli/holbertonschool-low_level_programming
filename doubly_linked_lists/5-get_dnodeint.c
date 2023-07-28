@@ -3,7 +3,7 @@
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	dlistint_t *curr = head;
-	int max = 0;
+	unsigned int max = 0;
 
 	while (curr)
 	{
@@ -11,7 +11,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		max++;
 	}
 
-	if (index <= max && max >= 0)
+	if (index <= max)
 		return (head + max);
 	else
 		return (NULL);
