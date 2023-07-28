@@ -9,12 +9,13 @@ dlistint_t
 	if (!new)
 		return (NULL);
 
-	new->prev = *head;
+	new->prev = NULL;
 	new->n = n;
 	new->next = *head;
 
+	if (*head)
+		(*head)->prev = new;
 	*head = new;
-	new->prev = NULL;
 
-	return (*head);
+	return (new);
 }
