@@ -16,5 +16,5 @@ dlistint_t
 	*head = new;
 	new->prev = NULL;
 
-	return (new);
+	return (*head);
 }
