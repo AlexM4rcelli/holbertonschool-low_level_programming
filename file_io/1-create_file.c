@@ -24,10 +24,9 @@ int create_file(const char *filename, char *text_content)
 
 	for (i = 0; text_content[i] != '\0'; i++)
 		;
-	if (text_content)
-		wrote = write(file_descriptor, text_content, i);
-	else
-		wrote = write(file_descriptor, text_content, 0);
+
+	wrote = write(file_descriptor, text_content, i);
+
 	if (wrote == -1)
 	{
 		close(file_descriptor);
