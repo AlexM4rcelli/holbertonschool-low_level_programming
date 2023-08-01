@@ -28,7 +28,7 @@ create_file(const char *filename, char *text_content)
 	}
 	close(file_descriptor);
 	file_descriptor = open(filename, O_RDONLY);
-	readed = read(file_descriptor, buff, i);
+	readed = read(file_descriptor, buff, writed);
 	if (readed == -1)
 	{
 		close(file_descriptor);
