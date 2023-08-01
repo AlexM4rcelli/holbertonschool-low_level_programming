@@ -10,7 +10,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	ssize_t i, readed, wrote;
+	ssize_t i, wrote;
 	int file_descriptor;
 	char *buff;
 
@@ -31,15 +31,6 @@ int create_file(const char *filename, char *text_content)
 	else
 		wrote = write(file_descriptor, "", 0);
 	if (wrote == -1)
-	{
-		close(file_descriptor);
-		free(buff);
-		return (-1);
-	}
-	close(file_descriptor);
-	file_descriptor = open(filename, O_RDONLY);
-	readed = read(file_descriptor, buff, wrote);
-	if (readed == -1)
 	{
 		close(file_descriptor);
 		free(buff);
