@@ -13,13 +13,13 @@ cp(char *file_from, char *file_to)
 
 	if (file_descriptor == -1 || readed == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
 	if (close(file_descriptor) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d", file_descriptor);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", file_descriptor);
 		exit(100);
 	} else
 		close(file_descriptor);
@@ -30,13 +30,13 @@ cp(char *file_from, char *file_to)
 	if (file_descriptor == -1 || wrote == -1)
 	{
 		close(file_descriptor);
-		dprintf(2, "Error: Can't write to %s", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 
 	if (close(file_descriptor) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d", file_descriptor);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_descriptor);
 	} else
 		close(file_descriptor);
 }
@@ -46,7 +46,7 @@ main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
