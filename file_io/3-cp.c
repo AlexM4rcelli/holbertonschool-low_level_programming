@@ -5,14 +5,21 @@ cp(char *file_from, char *file_to)
 {
 	ssize_t wrote, readed;
 	int file_descriptor;
-	char *text_cont[1024];
+	char text_cont[1024];
 
 	file_descriptor = open(file_from, O_RDONLY);
 
+	if (file_descriptor == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+
 	readed = read(file_descriptor, text_cont, sizeof(text_cont));
 
-	if (file_descriptor == -1 || readed == -1)
+	if (readed == -1)
 	{
+		close(file_descriptor);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
@@ -21,13 +28,18 @@ cp(char *file_from, char *file_to)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", file_descriptor);
 		exit(100);
-	} else
-		close(file_descriptor);
+	}
 
 	file_descriptor = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
-	wrote = write(file_descriptor, text_cont, readed);
 
-	if (file_descriptor == -1 || wrote == -1)
+	if (file_descriptor == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		exit(99);
+	}
+
+	wrote = write(file_descriptor, text_cont, readed);
+	if (wrote == -1 || wrote != readed)
 	{
 		close(file_descriptor);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
@@ -37,8 +49,8 @@ cp(char *file_from, char *file_to)
 	if (close(file_descriptor) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_descriptor);
-	} else
-		close(file_descriptor);
+		exit(100);
+	}
 }
 
 int
