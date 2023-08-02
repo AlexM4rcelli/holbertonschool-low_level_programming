@@ -24,7 +24,17 @@ cp(char *file_from, char *file_to)
 		exit(99);
 	}
 
-	readed = read(fd_from, text_cont, sizeof(text_cont));
+	while ((readed = read(fd_from, text_cont, sizeof(text_cont)) > 0))
+	{
+		wrote = write(fd_to, text_cont, readed);
+		if (wrote == -1 || wrote != readed)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			close(fd_from);
+			close(fd_to);
+			exit(99);
+		}
+	}
 
 	if (readed == -1)
 	{
@@ -32,15 +42,6 @@ cp(char *file_from, char *file_to)
 		close(fd_from);
 		close(fd_to);
 		exit(98);
-	}
-
-	wrote = write(fd_to, text_cont, readed);
-	if (wrote == -1 || wrote != readed)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		close(fd_from);
-		close(fd_to);
-		exit(99);
 	}
 
 	if (close(fd_from) == -1)
