@@ -1,6 +1,7 @@
 # include "main.h"
 
-void cp(char *file_from, char *file_to)
+void
+cp(char *file_from, char *file_to)
 {
 	ssize_t wrote, readed;
 	int file_descriptor;
@@ -15,23 +16,33 @@ void cp(char *file_from, char *file_to)
 		dprintf(2, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	close(file_descriptor);
-	file_descriptor = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
-	if (file_descriptor == -1 || readed == -1)
+
+	if (close(file_descriptor) == -1)
 	{
-		dprintf(2, "Error can't read from file %s\n", file_to);
-		exit(99);
-	}
+		dprintf(2, "Error: Can't close fd %d", file_descriptor);
+		exit(100);
+	} else
+		close(file_descriptor);
+
+	file_descriptor = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wrote = write(file_descriptor, text_cont, readed);
-	if (wrote == -1)
+
+	if (file_descriptor == -1 || wrote == -1)
 	{
 		close(file_descriptor);
-		exit(100);
+		dprintf(2, "Error: Can't write to %s", file_to);
+		exit(99);
 	}
-	close(file_descriptor);
+
+	if (close(file_descriptor) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d", file_descriptor);
+	} else
+		close(file_descriptor);
 }
 
-int main(int argc, char *argv[])
+int
+main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
