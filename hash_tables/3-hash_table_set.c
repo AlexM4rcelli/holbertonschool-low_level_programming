@@ -27,20 +27,14 @@ hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node = add_node((ht)->array, key, value);
 	int idx = key_index((const unsigned char *)key, ht->size);
 
-	if (!ht)
+	if (!ht || strlen(key) == 0 || strlen(value) == 0)
 		return (0);
 
 	if (!(new_node)->key || !(new_node)->value)
 		return (0);
+
 	if (!(ht)->array[idx])
 		(ht)->array[idx] = new_node;
-	else
-	{
-		if (strcmp((ht)->array[idx]->key, key))
-		{
-			strcpy((ht)->array[idx]->value, value);
-		}
-	}
 
 	return (1);
 }
