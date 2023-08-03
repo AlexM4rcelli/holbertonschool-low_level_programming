@@ -12,11 +12,12 @@ hash_node_t
 	(new)->key = malloc(strlen(key) + 1);
 	(new)->value = malloc(strlen(value) + 1);
 
+	if (!(new)->key || !(new)->value)
+		return (NULL);
+
 	strcpy(new->key, key);
 	strcpy(new->value, value);
 	(new)->next = *head;
-
-	*head = new;
 
 	return (new);
 }
@@ -35,6 +36,11 @@ hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!(ht)->array[idx])
 		(ht)->array[idx] = new_node;
+	else
+	{
+		(new_node)->next = (ht)->array[idx];
+		(ht)->array[idx] = new_node;
+	}
 
 	return (1);
 }
