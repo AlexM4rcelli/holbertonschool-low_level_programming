@@ -1,7 +1,7 @@
 # include "hash_tables.h"
 
 hash_node_t
-*add_node(hash_node_t **head, const char *key, const char *value)
+*add_node(const char *key, const char *value)
 {
 	hash_node_t *new;
 
@@ -17,7 +17,7 @@ hash_node_t
 
 	strcpy(new->key, key);
 	strcpy(new->value, value);
-	(new)->next = *head;
+	(new)->next = NULL;
 
 	return (new);
 }
@@ -25,7 +25,7 @@ hash_node_t
 int
 hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = add_node((ht)->array, key, value);
+	hash_node_t *new_node = add_node(key, value);
 	int idx = key_index((const unsigned char *)key, ht->size);
 
 	if (!ht || strlen(key) == 0 || strlen(value) == 0)
