@@ -10,11 +10,20 @@ hash_node_t
 		return (NULL);
 
 	(new)->key = malloc(strlen(key) + 1);
+
+	if (!(new)->key)
+	{
+		free(new);
+		return (NULL);
+	}
 	(new)->value = malloc(strlen(value) + 1);
 
-	if (!(new)->key || !(new)->value)
+	if (!(new)->value)
+	{
+		free((new)->key);
+		free(new);
 		return (NULL);
-
+	}
 	strcpy(new->key, key);
 	strcpy(new->value, value);
 	(new)->next = NULL;
@@ -25,14 +34,14 @@ hash_node_t
 int
 hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = add_node(key, value);
-	int idx = key_index((const unsigned char *)key, ht->size);
+	hash_node_t *new_node;
+	int idx;
 
 	if (!ht || strlen(key) == 0 || strlen(value) == 0)
 		return (0);
 
-	if (!(new_node)->key || !(new_node)->value)
-		return (0);
+	new_node = add_node(key, value);
+	idx = key_index((const unsigned char *)key, ht->size);
 
 	if (!(ht)->array[idx])
 		(ht)->array[idx] = new_node;
