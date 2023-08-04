@@ -47,7 +47,13 @@ hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		(ht)->array[idx] = new_node;
 	else
 	{
-		(ht)->array[idx] = new_node;
+		if ((strcmp((ht)->array[idx]->key, key)) == 0)
+			(ht)->array[idx]->value = (char *)value;
+		else
+		{
+			(new_node)->next = (ht)->array[idx];
+			(ht)->array[idx] = new_node;
+		}
 	}
 	return (1);
 }
